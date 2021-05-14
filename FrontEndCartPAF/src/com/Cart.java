@@ -144,6 +144,7 @@ public class Cart {
 			preparedStmt.setInt(5, Integer.parseInt(ID));
 
 			// execute the statement
+			//testing git hub
 			preparedStmt.execute();
 			con.close();
 			
