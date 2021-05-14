@@ -13,8 +13,13 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-6">
+			
 				<h1>Cart Service</h1>
 				<form id="formCart" name="formCart">
+				
+				<div id="alertSuccess" class="alert alert-success"></div>
+				<div id="alertError" class="alert alert-danger"></div>
+				
 					Research ID: 
 					<input id="researchID" name="researchID" type="text"
 						class="form-control form-control-sm"> 
@@ -32,13 +37,11 @@
 						class="form-control form-control-sm"> 
 					
 					<br> 
-					<input id="btnSave" name="btnSave" type="button" value="Save"
-						class="btn btn-primary"> 
+					<input id="btnSave" name="btnSave" type="button" value="Save" class="btn btn-primary"> 
 					<input type="hidden" id="hidItemIDSave" name="hidItemIDSave" value="">
 				</form>
 				
-				<div id="alertSuccess" class="alert alert-success"></div>
-				<div id="alertError" class="alert alert-danger"></div>
+				
 				
 				<br>
 				<div id="divItemsGrid">

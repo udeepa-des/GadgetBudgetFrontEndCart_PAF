@@ -36,6 +36,7 @@ $(document).on("click", "#btnSave", function(event)
 					onItemSaveComplete(response.responseText, status);
 				}
 			});
+	
 		});
 
 function onItemSaveComplete(response, status)
@@ -49,6 +50,7 @@ function onItemSaveComplete(response, status)
 			$("#alertSuccess").text("Successfully saved.");
 			$("#alertSuccess").show();
 			$("#divItemsGrid").html(resultSet.data);
+						
 		} else if (resultSet.status.trim() == "error")
 		{
 			$("#alertError").text(resultSet.data);
@@ -98,20 +100,24 @@ function onItemDeleteComplete(response, status)
 	if (status == "success")
 	{
 		var resultSet = JSON.parse(response);
+		
 		if (resultSet.status.trim() == "success")
 		{
 			$("#alertSuccess").text("Successfully deleted.");
 			$("#alertSuccess").show();
 			$("#divItemsGrid").html(resultSet.data);
+			
 		} else if (resultSet.status.trim() == "error")
 		{
 			$("#alertError").text(resultSet.data);
 			$("#alertError").show();
 		}
+		
 	} else if (status == "error")
 	{
 		$("#alertError").text("Error while deleting.");
 		$("#alertError").show();
+		
 	} else
 	{
 		$("#alertError").text("Unknown error while deleting..");
@@ -122,35 +128,35 @@ function onItemDeleteComplete(response, status)
 //CLIENT-MODEL================================================================
 function validateItemForm()
 {
-//	CODE
+//	Research ID
 	if ($("#researchID").val().trim() == "")
 	{
-		return "Insert Item Code.";
+		return "Insert Research ID.";
 	}
-//	NAME
+//	Research name
 	if ($("#researchName").val().trim() == "")
 	{
-		return "Insert Item Name.";
+		return "Insert Research name.";
 	}
 	9
-//	PRICE-------------------------------
+//	Amount
 	if ($("#Amount").val().trim() == "")
 	{
-		return "Insert Item Price.";
+		return "Insert Amount.";
 	}
-//	is numerical value
+//	Amount is numerical value
 	var tmpPrice = $("#Amount").val().trim();
 	if (!$.isNumeric(tmpPrice))
 	{
-		return "Insert a numerical value for Item Price.";
+		return "Insert a numerical value for Amount.";
 	}
-//	convert to decimal price
+//	convert to a decimal Amount
 	$("#Amount").val(parseFloat(tmpPrice).toFixed(2));
 	
-//	DESCRIPTION------------------------
+//	Description
 	if ($("#Description").val().trim() == "")
 	{
-		return "Insert Item Description.";
+		return "Insert a Description.";
 	}
 	return true;
 }
